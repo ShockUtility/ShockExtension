@@ -1,0 +1,12 @@
+/* 
+  Localizable.strings
+  ShockExtension
+
+  Created by shock on 2017. 5. 6..
+  Copyright © 2017년 CocoaPods. All rights reserved.
+*/
+
+Done        = "完了";
+OK          = "確認";
+Cancel      = "キャンセル";
+Loading     = "ロード中...";

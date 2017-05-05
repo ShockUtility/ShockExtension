@@ -1,8 +1,8 @@
 {
   "name": "ShockExtension",
   "version": "0.1.0",
-  "summary": "A short description of ShockExtension.",
-  "description": "TODO: Add long description of the pod here.",
+  "summary": "Frequently used basic extensions",
+  "description": "Frequently used basic extensions\nUIAlertController\nString\nInt",
   "homepage": "https://github.com/ShockUtility/ShockExtension",
   "license": {
     "type": "MIT",
