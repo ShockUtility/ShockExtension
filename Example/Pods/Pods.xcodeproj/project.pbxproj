@@ -22,6 +22,7 @@
 		6B3154E71EBD11D3005E7F61 /* Array+ex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B3154E61EBD11D3005E7F61 /* Array+ex.swift */; };
 		6B3154E91EBD125B005E7F61 /* UIView+ex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B3154E81EBD125B005E7F61 /* UIView+ex.swift */; };
 		6B3155091EBD29E1005E7F61 /* UIImage+ex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B3155081EBD29E1005E7F61 /* UIImage+ex.swift */; };
+		6B31550B1EBD2BC8005E7F61 /* UIBarButtonItem+ex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B31550A1EBD2BC8005E7F61 /* UIBarButtonItem+ex.swift */; };
 		756564ABAF2892FE7140C92A1CDDCF65 /* UIImage+Snapshot.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DBFBDCC891B770A2AC9EF0FB164B751 /* UIImage+Snapshot.m */; };
 		7E9B14D5F8842A86CA86F2AF45230725 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A8F339250A1C3C5C5C5364254007103 /* XCTest.framework */; };
 		841FF232C33C7D49C58CEFDBE7EEB92B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA323C90663942983643D7A4D1F697C8 /* UIKit.framework */; };
@@ -88,6 +89,7 @@
 		6B3154E61EBD11D3005E7F61 /* Array+ex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+ex.swift"; sourceTree = "<group>"; };
 		6B3154E81EBD125B005E7F61 /* UIView+ex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+ex.swift"; sourceTree = "<group>"; };
 		6B3155081EBD29E1005E7F61 /* UIImage+ex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+ex.swift"; sourceTree = "<group>"; };
+		6B31550A1EBD2BC8005E7F61 /* UIBarButtonItem+ex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem+ex.swift"; sourceTree = "<group>"; };
 		6BB59CDB1CA85A710826E5309BBE16BD /* Pods-ShockExtension_Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-ShockExtension_Example-resources.sh"; sourceTree = "<group>"; };
 		6E66B4218824CF8160D93713DDBEEA82 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		73D037B3C804B9E1BB70538E342E5104 /* FBSnapshotTestCase-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FBSnapshotTestCase-umbrella.h"; sourceTree = "<group>"; };
@@ -346,6 +348,7 @@
 				6B3154E81EBD125B005E7F61 /* UIView+ex.swift */,
 				6B3155081EBD29E1005E7F61 /* UIImage+ex.swift */,
 				FA8C4F4BD23C211260A171F4B334DC96 /* UIAlertController+ex.swift */,
+				6B31550A1EBD2BC8005E7F61 /* UIBarButtonItem+ex.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -514,6 +517,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F1664D5BA284ED3BCD29FFA706A3F01F /* ShockExtension-dummy.m in Sources */,
+				6B31550B1EBD2BC8005E7F61 /* UIBarButtonItem+ex.swift in Sources */,
 				6B3154E71EBD11D3005E7F61 /* Array+ex.swift in Sources */,
 				6B3155091EBD29E1005E7F61 /* UIImage+ex.swift in Sources */,
 				DEE8E564D89736C50B0F484B230026DA /* String+ex.swift in Sources */,
