@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'ShockExtension_Example' do
+  pod 'ShockExtension', :path => '../'
+
+  target 'ShockExtension_Tests' do
+    inherit! :search_paths
+
+    pod 'FBSnapshotTestCase'
+  end
+end
