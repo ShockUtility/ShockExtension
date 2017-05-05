@@ -1,0 +1,6 @@
+framework module ShockExtension {
+  umbrella header "ShockExtension-umbrella.h"
+
+  export *
+  module * { export * }
+}

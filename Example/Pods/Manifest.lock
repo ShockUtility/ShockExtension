@@ -1,0 +1,23 @@
+PODS:
+  - FBSnapshotTestCase (2.1.4):
+    - FBSnapshotTestCase/SwiftSupport (= 2.1.4)
+  - FBSnapshotTestCase/Core (2.1.4)
+  - FBSnapshotTestCase/SwiftSupport (2.1.4):
+    - FBSnapshotTestCase/Core
+  - ShockExtension (0.1.0)
+
+DEPENDENCIES:
+  - FBSnapshotTestCase
+  - ShockExtension (from `../`)
+
+EXTERNAL SOURCES:
+  ShockExtension:
+    :path: ../
+
+SPEC CHECKSUMS:
+  FBSnapshotTestCase: 094f9f314decbabe373b87cc339bea235a63e07a
+  ShockExtension: e1a628c989d3f8b2e83378fc51bc64ed8840d737
+
+PODFILE CHECKSUM: 591fd012525aec23c93c53f61767e590a46727ec
+
+COCOAPODS: 1.2.1
