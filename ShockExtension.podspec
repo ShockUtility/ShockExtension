@@ -13,7 +13,7 @@ Pod::Spec.new do |s|
   s.description      = <<-DESC
 Frequently used basic extensions
 UIAlertController
-String 
+String
 Int
                        DESC
 
