@@ -53,4 +53,12 @@ public extension String {
         }
         return self
     }
+    
+    var encodedUrlParam: String? { // 특정 URL 뒤에 파라미터로 연결하기 위해 퍼센트 엔코딩된 문자열을 반환
+        return self.addingPercentEncoding(withAllowedCharacters: .urlUserAllowed)
+    }
+    
+    var encodedUrl: URL? {
+        return URL(string: self.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? "")
+    }
 }
