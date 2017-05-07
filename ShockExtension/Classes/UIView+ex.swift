@@ -28,19 +28,18 @@ public extension UIView {
         set {
             self.layer.cornerRadius = newValue
             
-            // Don't touch the masksToBound property if a shadow is needed in addition to the cornerRadius
             if shadow == false {
                 self.layer.masksToBounds = true
             }
         }
     }
     
-    @IBInspectable var borderColor: CGColor {
+    @IBInspectable var borderColor: UIColor {
         get {
-            return self.layer.borderColor!
+            return UIColor(cgColor: self.layer.borderColor!)
         }
         set {
-            self.layer.borderColor = newValue
+            self.layer.borderColor = newValue.cgColor
         }
     }
     

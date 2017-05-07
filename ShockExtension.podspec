@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'ShockExtension'
-  s.version          = '0.1.4'
+  s.version          = '0.1.5'
   s.summary          = 'Frequently used basic extensions'
   s.description      = <<-DESC
 Frequently used basic extensions
@@ -34,3 +34,6 @@ Int
   # s.frameworks = 'UIKit', 'MapKit'
   # s.dependency 'AFNetworking', '~> 2.3'
 end
+
+# 새로운 버전 생성 후 github.com 에서 릴리스 저전 생성하고 다음의 커맨드로 배포해야된다
+# pod trunk push ShockExtension.podspec --verbose
