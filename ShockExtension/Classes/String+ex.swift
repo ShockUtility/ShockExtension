@@ -14,9 +14,9 @@ public extension String {
         return NSLocalizedString(self, comment: "")
     }
     
-    func validateUrl(_ urlString: String) -> Bool {
+    var validateUrl: Bool {
         let urlRegEx = "https?://(?:www\\.)?[\\w\\d\\-_]+\\.\\w{2,3}(\\.\\w{2})?(/(?<=/)(?:[\\w\\d\\-./_]+)?)?"
-        return NSPredicate(format: "SELF MATCHES %@", urlRegEx).evaluate(with: urlString)
+        return NSPredicate(format: "SELF MATCHES %@", urlRegEx).evaluate(with: self)
     }
     
     func countOfMatchs(pattern: String, options: NSRegularExpression.Options = .caseInsensitive) -> Int {
