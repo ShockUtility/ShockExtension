@@ -110,7 +110,13 @@
                             <constraint firstItem="ZdN-48-XOT" firstAttribute="leading" secondItem="PDS-Bn-AOk" secondAttribute="leadingMargin" id="xAY-TF-UgP"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Alert Test" id="kQV-Jc-Ufi"/>
+                    <navigationItem key="navigationItem" title="Alert Test" id="kQV-Jc-Ufi">
+                        <barButtonItem key="rightBarButtonItem" title="Item" id="ESG-BZ-Ioi">
+                            <connections>
+                                <action selector="onClickBarButton:" destination="iqP-pD-7GQ" id="Spp-wi-02m"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pTJ-fN-Yis" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

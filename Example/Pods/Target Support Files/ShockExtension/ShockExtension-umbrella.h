@@ -10,6 +10,8 @@
 #endif
 #endif
 
+#import "TOActivityChrome.h"
+#import "TOActivitySafari.h"
 
 FOUNDATION_EXPORT double ShockExtensionVersionNumber;
 FOUNDATION_EXPORT const unsigned char ShockExtensionVersionString[];

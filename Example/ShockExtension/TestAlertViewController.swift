@@ -15,6 +15,11 @@ class TestAlertViewController: UIViewController {
         super.viewDidLoad()
     }
 
+    @IBAction func onClickBarButton(_ sender: UIBarButtonItem) {
+        UIActivityViewController(self, barButtonItem: sender, url: URL(string: "http://www.google.com")!)
+        
+    }
+    
     @IBAction func onClickLikeToast(_ sender: Any) {
         UIAlertController(self, title: "Toast Alert", second: 3.0)
     }
