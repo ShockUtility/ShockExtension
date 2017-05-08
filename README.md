@@ -5,6 +5,9 @@
 [![License](https://img.shields.io/cocoapods/l/ShockExtension.svg?style=flat)](http://cocoapods.org/pods/ShockExtension)
 [![Platform](https://img.shields.io/cocoapods/p/ShockExtension.svg?style=flat)](http://cocoapods.org/pods/ShockExtension)
 
+TOActivityChrome : [TOWebViewController](https://github.com/TimOliver/TOWebViewController)
+TOActivitySafari : [TOWebViewController](https://github.com/TimOliver/TOWebViewController)
+
 ## Example
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.

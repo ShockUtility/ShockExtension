@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'ShockExtension'
-  s.version          = '0.1.5'
+  s.version          = '0.1.6'
   s.summary          = 'Frequently used basic extensions'
   s.description      = <<-DESC
 Frequently used basic extensions
