@@ -15,7 +15,7 @@ public extension String {
     }
     
     var validateUrl: Bool {
-        let urlRegEx = "https?://(?:www\\.)?[\\w\\d\\-_]+\\.\\w{2,3}(\\.\\w{2})?(/(?<=/)(?:[\\w\\d\\-./_]+)?)?"
+        let urlRegEx = "^https?://[a-z0-9]+([\\-\\.]{1}[a-z0-9]+)*\\.[a-z]{2,5}(:[0-9]{1,5})?(\\/.*)?$"
         return NSPredicate(format: "SELF MATCHES %@", urlRegEx).evaluate(with: self)
     }
     
