@@ -8,7 +8,7 @@
 
 import UIKit
 
-extension UIScreen {
+public extension UIScreen {
     
     static func realSize(orientation: UIInterfaceOrientation) -> CGSize {
         let size = UIScreen.main.bounds.size
