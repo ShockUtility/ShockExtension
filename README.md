@@ -5,7 +5,7 @@
 [![License](https://img.shields.io/cocoapods/l/ShockExtension.svg?style=flat)](http://cocoapods.org/pods/ShockExtension)
 [![Platform](https://img.shields.io/cocoapods/p/ShockExtension.svg?style=flat)](http://cocoapods.org/pods/ShockExtension)
 
-## Example
+## Other Source
 
 TOActivityChrome : [TOWebViewController](https://github.com/TimOliver/TOWebViewController)<br>
 TOActivitySafari : [TOWebViewController](https://github.com/TimOliver/TOWebViewController)
