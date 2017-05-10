@@ -31,4 +31,11 @@ public extension Array {
         }
         return dict
     }
+    
+    // 배열을 랜덤하게 소팅 시킨다
+    mutating func shuffle() {
+        for _ in 0..<10 {
+            sort { (_,_) in arc4random() < arc4random() }
+        }
+    }
 }
