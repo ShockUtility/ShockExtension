@@ -16,8 +16,7 @@ class TestAlertViewController: UIViewController {
     }
 
     @IBAction func onClickBarButton(_ sender: UIBarButtonItem) {
-        UIActivityViewController(self, barButtonItem: sender, url: URL(string: "http://www.google.com")!)
-        
+        UIActivityViewController(self, barButtonItem: sender, url: URL(string: "http://www.google.com")!)        
     }
     
     @IBAction func onClickLikeToast(_ sender: Any) {
@@ -37,9 +36,11 @@ class TestAlertViewController: UIViewController {
     }
     
     @IBAction func onClickInput(_ sender: Any) {
-        UIAlertController(self, title: "Input", message: "message",
-                          defaultText: "default text", placeHolder: "place holder", completed: { text in
-            print("Input text :", text)
+        UIAlertController(self, title: "Input",
+                          message: "message",
+                          defaultText: "default text",
+                          placeHolder: "place holder", completed: { (isOK, text) in
+            print("OK 버튼 클릭 =", isOK, " , 입력값 =", text)
         })
     }
     
@@ -53,7 +54,7 @@ class TestAlertViewController: UIViewController {
     @IBAction func onClickProgress(_ sender: Any) {
         UIAlertController(self, loadingStyle: .gray, progressTint: .red) { (alert, progressView) in
             for i in 1...10 {
-                DispatchQueue.main.asyncAfter(deadline: .now() + Double(i) / 2, execute: {
+                DispatchQueue.main.asyncAfter(deadline: .now() + Double(i) / 10, execute: {
                     progressView.progress = Float(CGFloat(i) / 10.0)
                     if i == 10 {
                         alert.dismiss(animated: true)
@@ -63,3 +64,9 @@ class TestAlertViewController: UIViewController {
         }
     }
 }
+
+
+
+
+
+

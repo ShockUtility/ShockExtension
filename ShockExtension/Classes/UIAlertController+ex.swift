@@ -62,7 +62,7 @@ public extension UIAlertController {
     @discardableResult
     convenience init(_ controller: UIViewController, title: String, message: String?,
                      defaultText: String, placeHolder: String,
-                     completed: @escaping (_ name: String) -> Void)
+                     completed: @escaping (_ isOK: Bool, _ name: String) -> Void)
     {
         self.init(title: title, message: message, preferredStyle: .alert)
         
@@ -74,14 +74,15 @@ public extension UIAlertController {
         }
         
         self.addAction(UIAlertAction(title: "Cancel".localized, style: .cancel) { action in
+            completed(false, "")
             self.dismiss(animated: true)
         })
         
         self.addAction(UIAlertAction(title: "OK".localized, style: .default) { action in
             if let name = self.textFields!.first!.text {
                 let trimmedName = name.trimmingCharacters(in: .whitespacesAndNewlines)
-                completed(trimmedName)
-            }
+                completed(true, trimmedName)
+            } 
             self.dismiss(animated: true)
         })
         
