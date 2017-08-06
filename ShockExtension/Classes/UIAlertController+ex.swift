@@ -7,91 +7,132 @@
 //
 
 import Foundation
+import UIKit
 
 public extension UIAlertController {
     
-    // 알리고 사라짐
-    @discardableResult
-    convenience init(_ controller: UIViewController, title: String, second: Double = 0.7)
+    // 메세지를 알려주고 지정된 시간 후에 삭제
+    class func tost(_ controller: UIViewController, title: String, second: Double = 0.7)
     {
-        self.init(title: title, message: nil, preferredStyle: .alert)
-        controller.present(self, animated: true)
+        let alert = UIAlertController(title: title, message: nil, preferredStyle: .alert)
         
-        DispatchQueue.main.asyncAfter(deadline: .now()+second) {
-            self.dismiss(animated: true)
+        controller.present(alert, animated: true)
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + second) {
+            alert.dismiss(animated: true)
         }
     }
     
-    // 메세지 알림과 종료 핸들러
-    @discardableResult
-    convenience init(_ controller: UIViewController, title: String, message: String?,
-                     completed: (() -> Void)? = nil)
+    // 확인 얼럿
+    class func alert(_ controller: UIViewController, title: String, message: String?, completed: (() -> Void)? = nil)
     {
-        self.init(title: title, message: message, preferredStyle: .alert)
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         
-        self.addAction(UIAlertAction(title: "Done".localized, style: .default) { action in
-            if let com = completed {
-                com()
+        alert.addAction(UIAlertAction(title: "Done".localized, style: .default) { action in
+            alert.dismiss(animated: true)
+            if completed != nil {
+                completed!()
             }
-            self.dismiss(animated: true)
         })
         
-        controller.present(self, animated: true)
+        controller.present(alert, animated: true)
     }
     
-    // 확인/취소 선택 얼럿
-    @discardableResult
-    convenience init(_ controller: UIViewController, title: String, message: String?,
-                     completedOK: @escaping () -> Void)
+    // 선택 얼럿
+    class func confirm(_ controller: UIViewController, title: String, message: String?,
+                       completed: @escaping (_ isOK: Bool) -> Void)
     {
-        self.init(title: title, message: message, preferredStyle: .alert)
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         
-        self.addAction(UIAlertAction(title: "Cancel".localized, style: .cancel) { action in
-            self.dismiss(animated: true)
+        alert.addAction(UIAlertAction(title: "Cancel".localized, style: .cancel) { action in
+            alert.dismiss(animated: true)
+            completed(false)
         })
         
-        self.addAction(UIAlertAction(title: "OK".localized, style: .default) { action in
-            completedOK()
-            self.dismiss(animated: true)
+        alert.addAction(UIAlertAction(title: "OK".localized, style: .default) { action in
+            alert.dismiss(animated: true)
+            completed(true)
         })
         
-        controller.present(self, animated: true)
+        controller.present(alert, animated: true)
     }
     
-    // 인풋박스 얼럿
-    @discardableResult
-    convenience init(_ controller: UIViewController, title: String, message: String?,
-                     defaultText: String, placeHolder: String,
-                     completed: @escaping (_ isOK: Bool, _ name: String) -> Void)
+    // 입력값 얼럿
+    class func input(_ controller: UIViewController, title: String, message: String?,
+                     defaultText: String?, placeHolder: String?, isSecure: Bool?,
+                     completed: @escaping (_ resultText: String?) -> Void)
     {
-        self.init(title: title, message: message, preferredStyle: .alert)
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         
-        self.addTextField { textField in
-            textField.text = defaultText
-            textField.placeholder = placeHolder
+        alert.addTextField { textField in
+            textField.text = defaultText ?? ""
+            textField.placeholder = placeHolder ?? ""
+            textField.isSecureTextEntry = isSecure ?? false
             textField.clearButtonMode = .whileEditing
             textField.autocapitalizationType = .words
         }
         
-        self.addAction(UIAlertAction(title: "Cancel".localized, style: .cancel) { action in
-            completed(false, "")
-            self.dismiss(animated: true)
+        alert.addAction(UIAlertAction(title: "Cancel".localized, style: .cancel) { action in
+            alert.dismiss(animated: true)
+            completed(nil)
         })
         
-        self.addAction(UIAlertAction(title: "OK".localized, style: .default) { action in
-            if let name = self.textFields!.first!.text {
-                let trimmedName = name.trimmingCharacters(in: .whitespacesAndNewlines)
-                completed(true, trimmedName)
-            } 
-            self.dismiss(animated: true)
+        alert.addAction(UIAlertAction(title: "OK".localized, style: .default) { action in
+            alert.dismiss(animated: true)
+            completed(alert.textFields!.first!.text ?? "")
         })
         
-        controller.present(self, animated: true)
+        controller.present(alert, animated: true)
     }
     
-    fileprivate convenience init(loadingStyle: UIActivityIndicatorViewStyle) {
-        self.init(title: "Loading".localized, message: nil, preferredStyle: .alert)
+    // 로딩 얼럿
+    @discardableResult
+    class func loading(_ controller: UIViewController,
+                       loadingStyle: UIActivityIndicatorViewStyle,
+                       title: String? = "Loading".localized,
+                       completed: ((_ alert: UIAlertController) -> Void)?) -> UIAlertController
+    {
+        let alert = UIAlertController(title: title, message: nil, preferredStyle: .alert)
+        alert.addLoadingView(loadingStyle: loadingStyle)
         
+        controller.present(alert, animated: true) {
+            if let result = completed {
+                result(alert)
+            }
+        }
+        
+        return alert
+    }
+    
+    // 프로그래스 얼럿
+    class func progress(_ controller: UIViewController,
+                        loadingStyle: UIActivityIndicatorViewStyle,
+                        progressTint: UIColor,
+                        title: String? = "Loading".localized,
+                        completed: @escaping (_ alert: UIAlertController, _ progressView: UIProgressView) -> Void)
+    {
+        let alert = UIAlertController(title: title, message: nil, preferredStyle: .alert)
+        
+        alert.addLoadingView(loadingStyle: loadingStyle)
+        
+        let progressView = UIProgressView(frame: CGRect(x: 0, y: 0, width: 200, height: 10))
+        progressView.tintColor = progressTint
+        alert.view.addSubview(progressView)
+        progressView.center = CGPoint(x: alert.view.bounds.midX, y: 50)
+        
+        alert.view.addConstraint(NSLayoutConstraint(
+            item: progressView, attribute: .centerX, relatedBy: .equal,
+            toItem: alert.view, attribute: .centerX, multiplier: 1.0, constant: 0.0))
+        
+        controller.present(alert, animated: true) {
+            completed(alert, progressView)
+        }
+    }
+}
+
+fileprivate extension UIAlertController {
+    // 로딩 뷰를 추가해 준다
+    func addLoadingView(loadingStyle: UIActivityIndicatorViewStyle) {
         let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: loadingStyle)
         activityIndicator.translatesAutoresizingMaskIntoConstraints = false
         self.view.addSubview(activityIndicator)
@@ -107,41 +148,9 @@ public extension UIAlertController {
                                                             relatedBy: NSLayoutRelation.equal,
                                                             toItem: nil, attribute: NSLayoutAttribute.notAnAttribute,
                                                             multiplier: 1, constant: 100)
-        self.view.addConstraint(height);
-    }
-    
-    // 로딩 얼럿
-    convenience init(_ controller: UIViewController, loadingStyle: UIActivityIndicatorViewStyle)
-    {
-        self.init(loadingStyle: loadingStyle)
-        controller.present(self, animated: true)
-    }
-    
-    // 프로그래스 얼럿
-    @discardableResult
-    convenience init(_ controller: UIViewController,
-                     loadingStyle: UIActivityIndicatorViewStyle,
-                     progressTint: UIColor,
-                     completed: @escaping (_ alert: UIAlertController, _ progressView: UIProgressView) -> Void)
-    {
-        self.init(loadingStyle: loadingStyle)
-        
-        let progressView = UIProgressView(frame: CGRect(x: 0, y: 0, width: 200, height: 10))
-        progressView.tintColor = progressTint
-        self.view.addSubview(progressView)
-        progressView.center = CGPoint(x: self.view.bounds.midX, y: 50)
-        
-        self.view.addConstraint(NSLayoutConstraint(
-            item: progressView, attribute: .centerX, relatedBy: .equal,
-            toItem: self.view, attribute: .centerX, multiplier: 1.0, constant: 0.0))
-        
-        controller.present(self, animated: true) {
-            completed(self, progressView)
-        }
+        self.view.addConstraint(height)
     }
 }
-
-
 
 
 

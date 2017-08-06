@@ -21,40 +21,37 @@ class TestAlertViewController: UIViewController {
     }
     
     @IBAction func onClickLikeToast(_ sender: Any) {
-        UIAlertController(self, title: "Toast Alert", second: 3.0)
+        UIAlertController.tost(self, title: "Toast Alert", second: 3.0)        
     }
 
     @IBAction func onClickNormal(_ sender: Any) {
-        UIAlertController(self, title: "Message Alert", message: "message", completedOK: {
+        UIAlertController.alert(self, title: "Message Alert", message: "UIAlertController.alert") {
             print("Message Alert : Completed")
-        })
+        }
     }
     
     @IBAction func onClickConfirm(_ sender: Any) {
-        UIAlertController(self, title: "Confirm Alert", message: "message", completedOK: {
-            print("Confirm Alert : OK")
-        })
+        UIAlertController.confirm(self, title: "Confirm Alert", message: "UIAlertController.confirm") { (isOK) in
+            print("Confirm Alert :", isOK)
+        }
     }
     
     @IBAction func onClickInput(_ sender: Any) {
-        UIAlertController(self, title: "Input",
-                          message: "message",
-                          defaultText: "default text",
-                          placeHolder: "place holder", completed: { (isOK, text) in
-            print("OK 버튼 클릭 =", isOK, " , 입력값 =", text)
-        })
+        UIAlertController.input(self, title: "Input Alert", message: "UIAlertController.input", defaultText: "defaultText", placeHolder: "placeHolder", isSecure: false) { (resultText) in
+            print("input : ", resultText ?? "null")
+        }
     }
     
     @IBAction func onClickLoading(_ sender: Any) {
-        let loading = UIAlertController(self, loadingStyle: .gray)
-        DispatchQueue.main.asyncAfter(deadline: .now()+3) {
-            loading.dismiss(animated: true)
+        UIAlertController.loading(self, loadingStyle: .gray) { (alert) in
+            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                alert.dismiss(animated: true, completion: nil)
+            }
         }
-        
     }
     
     @IBAction func onClickProgress(_ sender: Any) {
-        UIAlertController(self, loadingStyle: .gray, progressTint: .red) { (alert, progressView) in
+        UIAlertController.progress(self, loadingStyle: .gray, progressTint: .red) { (alert, progressView) in
             for i in 1...10 {
                 DispatchQueue.main.asyncAfter(deadline: .now() + Double(i) / 10, execute: {
                     progressView.progress = Float(CGFloat(i) / 10.0)
@@ -64,6 +61,10 @@ class TestAlertViewController: UIViewController {
                 })
             }
         }
+    }
+    
+    @IBAction func onClickSKStoreProduct(_ sender: Any) {
+        SKStoreProductViewController.show(self, productID: "385048753")
     }
 }
 
