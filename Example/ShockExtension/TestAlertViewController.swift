@@ -50,6 +50,7 @@ class TestAlertViewController: UIViewController {
         DispatchQueue.main.asyncAfter(deadline: .now()+3) {
             loading.dismiss(animated: true)
         }
+        
     }
     
     @IBAction func onClickProgress(_ sender: Any) {

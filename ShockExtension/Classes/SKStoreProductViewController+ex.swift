@@ -41,7 +41,9 @@ public extension SKStoreProductViewController {
             storeViewController.loadProduct(withParameters: parameters, completionBlock: { (loaded, error) in
                 alert.dismiss(animated: true, completion: {
                     if loaded {
-                        controller.navigationController?.pushViewController(storeViewController, animated: true)
+                        self.delegate = controller as? SKStoreProductViewControllerDelegate
+                        self.present(storeViewController, animated: true, completion: nil)
+//                        controller.navigationController?.pushViewController(storeViewController, animated: true) // iOS8 에서 오류 
                     }
                 })
             })
