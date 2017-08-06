@@ -111,7 +111,7 @@ public extension UIAlertController {
     }
     
     // 로딩 얼럿
-    convenience init(_ controller: UIViewController, loadingStyle: UIActivityIndicatorViewStyle = .gray)
+    convenience init(_ controller: UIViewController, loadingStyle: UIActivityIndicatorViewStyle)
     {
         self.init(loadingStyle: loadingStyle)
         controller.present(self, animated: true)
@@ -120,7 +120,8 @@ public extension UIAlertController {
     // 프로그래스 얼럿
     @discardableResult
     convenience init(_ controller: UIViewController,
-                     loadingStyle: UIActivityIndicatorViewStyle, progressTint: UIColor,
+                     loadingStyle: UIActivityIndicatorViewStyle,
+                     progressTint: UIColor,
                      completed: @escaping (_ alert: UIAlertController, _ progressView: UIProgressView) -> Void)
     {
         self.init(loadingStyle: loadingStyle)

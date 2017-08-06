@@ -23,6 +23,7 @@
 		6B3154E91EBD125B005E7F61 /* UIView+ex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B3154E81EBD125B005E7F61 /* UIView+ex.swift */; };
 		6B3155091EBD29E1005E7F61 /* UIImage+ex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B3155081EBD29E1005E7F61 /* UIImage+ex.swift */; };
 		6B31550B1EBD2BC8005E7F61 /* UIBarButtonItem+ex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B31550A1EBD2BC8005E7F61 /* UIBarButtonItem+ex.swift */; };
+		6B798F2D1F368F33008BD099 /* SKStoreProductViewController+ex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B798F2C1F368F33008BD099 /* SKStoreProductViewController+ex.swift */; };
 		6BC03F671EC337FC00AD4F23 /* AutoLayoutOperator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BC03F661EC337FC00AD4F23 /* AutoLayoutOperator.swift */; };
 		6BF52F7C1EC03E5300F11CB5 /* TOActivityChrome.h in Headers */ = {isa = PBXBuildFile; fileRef = 6BF52F7A1EC03E5300F11CB5 /* TOActivityChrome.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6BF52F7D1EC03E5300F11CB5 /* TOActivityChrome.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BF52F7B1EC03E5300F11CB5 /* TOActivityChrome.m */; };
@@ -97,6 +98,7 @@
 		6B3154E81EBD125B005E7F61 /* UIView+ex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+ex.swift"; sourceTree = "<group>"; };
 		6B3155081EBD29E1005E7F61 /* UIImage+ex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+ex.swift"; sourceTree = "<group>"; };
 		6B31550A1EBD2BC8005E7F61 /* UIBarButtonItem+ex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem+ex.swift"; sourceTree = "<group>"; };
+		6B798F2C1F368F33008BD099 /* SKStoreProductViewController+ex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SKStoreProductViewController+ex.swift"; sourceTree = "<group>"; };
 		6BB59CDB1CA85A710826E5309BBE16BD /* Pods-ShockExtension_Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-ShockExtension_Example-resources.sh"; sourceTree = "<group>"; };
 		6BC03F661EC337FC00AD4F23 /* AutoLayoutOperator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoLayoutOperator.swift; sourceTree = "<group>"; };
 		6BF52F7A1EC03E5300F11CB5 /* TOActivityChrome.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOActivityChrome.h; sourceTree = "<group>"; };
@@ -366,6 +368,7 @@
 				FA8C4F4BD23C211260A171F4B334DC96 /* UIAlertController+ex.swift */,
 				6B31550A1EBD2BC8005E7F61 /* UIBarButtonItem+ex.swift */,
 				6BF52F821EC03FCA00F11CB5 /* UIActivityViewController+ex.swift */,
+				6B798F2C1F368F33008BD099 /* SKStoreProductViewController+ex.swift */,
 				6BF52F7A1EC03E5300F11CB5 /* TOActivityChrome.h */,
 				6BF52F7B1EC03E5300F11CB5 /* TOActivityChrome.m */,
 				6BF52F7E1EC03F3F00F11CB5 /* TOActivitySafari.h */,
@@ -579,6 +582,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				506D761F91EC3583789A837C559972FE /* FBSnapshotTestCase-dummy.m in Sources */,
+				6B798F2D1F368F33008BD099 /* SKStoreProductViewController+ex.swift in Sources */,
 				BE14F2198CDB0DAD98A567981D21C7A1 /* FBSnapshotTestCase.m in Sources */,
 				DB7A106243AC974FC7EBEB00B506C786 /* FBSnapshotTestCasePlatform.m in Sources */,
 				A4F69F3477A935285620AC3031C5C848 /* FBSnapshotTestController.m in Sources */,
