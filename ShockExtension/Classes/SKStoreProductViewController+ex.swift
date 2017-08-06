@@ -42,7 +42,7 @@ public extension SKStoreProductViewController {
                 alert.dismiss(animated: true, completion: {
                     if loaded {
                         self.delegate = controller as? SKStoreProductViewControllerDelegate
-                        self.present(storeViewController, animated: true, completion: nil)
+                        controller.present(storeViewController, animated: true, completion: nil)
 //                        controller.navigationController?.pushViewController(storeViewController, animated: true) // iOS8 에서 오류 
                     }
                 })
