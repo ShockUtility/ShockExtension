@@ -17,7 +17,7 @@ public extension SKStoreProductViewController {
         let store = SKStoreProductViewController.init()
         store.delegate = controller as? SKStoreProductViewControllerDelegate
         
-        UIAlertController.loading(store, loadingStyle: .gray) { (loadingAlert) in
+        UIAlertController.loading(controller, loadingStyle: .gray) { (loadingAlert) in
             let parameters = [SKStoreProductParameterITunesItemIdentifier : productID]
             store.loadProduct(withParameters: parameters, completionBlock: { (loaded, error) in
                 loadingAlert.dismiss(animated: true, completion: {
