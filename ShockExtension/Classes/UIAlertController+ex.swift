@@ -10,7 +10,6 @@ import Foundation
 import UIKit
 
 public extension UIAlertController {
-    
     // 메세지를 알려주고 지정된 시간 후에 삭제
     class func tost(_ controller: UIViewController, title: String, second: Double = 0.7)
     {
@@ -128,6 +127,20 @@ public extension UIAlertController {
             completed(alert, progressView)
         }
     }
+    
+    func loadingDone(newTitle: String, completed: (() -> Void)? = nil) {
+        if let activityIndicator = self.view.viewWithTag(999) {
+            activityIndicator.removeFromSuperview()
+        }
+        self.title = newTitle
+        
+        self.addAction(UIAlertAction(title: "Done".localized, style: .default) { action in
+            self.dismiss(animated: true)
+            if completed != nil {
+                completed!()
+            }
+        })
+    }
 }
 
 fileprivate extension UIAlertController {
@@ -135,6 +148,7 @@ fileprivate extension UIAlertController {
     func addLoadingView(loadingStyle: UIActivityIndicatorViewStyle) {
         let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: loadingStyle)
         activityIndicator.translatesAutoresizingMaskIntoConstraints = false
+        activityIndicator.tag = 999
         self.view.addSubview(activityIndicator)
         
         let xConstraint = NSLayoutConstraint(item: activityIndicator, attribute: .centerX, relatedBy: .equal,
