@@ -37,7 +37,7 @@ public extension UIAlertController {
         controller.present(alert, animated: true)
     }
     
-    // 선택 얼럿
+    // 확인/취소 얼럿
     class func confirm(_ controller: UIViewController, title: String, message: String?,
                        completed: @escaping (_ isOK: Bool) -> Void)
     {
@@ -51,6 +51,26 @@ public extension UIAlertController {
         alert.addAction(UIAlertAction(title: "OK".localized, style: .default) { action in
             alert.dismiss(animated: true)
             completed(true)
+        })
+        
+        controller.present(alert, animated: true)
+    }
+    
+    // 선택 얼럿
+    class func select(_ controller: UIViewController, title: String, message: String,
+                      firstButton: String, secondButton: String,
+                      completed: @escaping (_ selectedButton: String) -> Void)
+    {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: firstButton, style: .cancel) { action in
+            alert.dismiss(animated: true)
+            completed(firstButton)
+        })
+        
+        alert.addAction(UIAlertAction(title: secondButton, style: .default) { action in
+            alert.dismiss(animated: true)
+            completed(secondButton)
         })
         
         controller.present(alert, animated: true)
