@@ -8,7 +8,7 @@
 
 import Foundation
 
-func printLog(_ items: Any..., function: String = #function, line: Int = #line ) {
+public func printLog(_ items: Any..., function: String = #function, line: Int = #line ) {
     #if DEBUG
         let logFormatter = DateFormatter()
         logFormatter.dateFormat = "mm:ss.SSS"
