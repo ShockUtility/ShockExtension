@@ -10,6 +10,21 @@ import Foundation
 
 public extension String {
     
+    subscript (i: Int) -> Character {
+        return Array(self.characters)[i]
+    }
+    
+    subscript (r: CountableClosedRange<Int>) -> String {
+        if r.upperBound >= self.characters.count {
+            return self[r.lowerBound...self.characters.count-1]
+        }
+        return String(Array(self.characters)[r])
+    }
+    
+    subscript (r: CountableRange<Int>) -> String {
+        return self[r.lowerBound...r.upperBound-1]
+    }
+    
     var localized: String {
         return NSLocalizedString(self, comment: "")
     }
