@@ -11,7 +11,7 @@ import UIKit
 
 public extension UIAlertController {
     // 메세지를 알려주고 지정된 시간 후에 삭제
-    class func tost(_ controller: UIViewController, title: String, second: Double = 0.7)
+    class func tost(_ controller: UIViewController, title: String, second: Double = 1.2, completed: (() -> Void)? = nil)
     {
         let alert = UIAlertController(title: title, message: nil, preferredStyle: .alert)
         
@@ -19,6 +19,9 @@ public extension UIAlertController {
         
         DispatchQueue.main.asyncAfter(deadline: .now() + second) {
             alert.dismiss(animated: true)
+            if completed != nil {
+                completed!()
+            }
         }
     }
     

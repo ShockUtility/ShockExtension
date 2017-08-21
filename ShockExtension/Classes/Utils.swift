@@ -19,6 +19,6 @@ public func printLog(_ items: Any..., function: String = #function, line: Int = 
         for _ in fname.characters.count..<32 {
             fname.append("_")
         }
-        print(String(format: "[printLog][%@][%@][%05d] >>> %@ ", fname, time, line, joind))
+        print(String(format: "[printLog] [%@] [%@] [%05d] >>> %@", fname, time, line, joind))
     #endif
 }
