@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'ShockExtension'
-  s.version          = '0.5.5'
+  s.version          = '0.5.7'
   s.summary          = 'Frequently used basic extensions'
   s.description      = <<-DESC
 Frequently used basic extensions
@@ -36,4 +36,4 @@ Int
 end
 
 # 새로운 버전 생성 후 github.com 에서 릴리스 저전 생성하고 다음의 커맨드로 배포해야된다
-# pod trunk push ShockExtension.podspec --verbose
+# pod trunk push ShockExtension.podspec --verbose --allow-warnings
