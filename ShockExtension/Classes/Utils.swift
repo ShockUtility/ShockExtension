@@ -15,8 +15,8 @@ public func printLog(_ items: Any..., function: String = #function, line: Int = 
         let time = logFormatter.string(from: Date())
         let joind = items.map { "\($0)" }.joined(separator: " ")
         
-        var fname = function[0..<24]
-        for _ in fname.characters.count..<24 {
+        var fname = function[0..<32]
+        for _ in fname.characters.count..<32 {
             fname.append("_")
         }
         print(String(format: "[printLog][%@][%@][%05d] >>> %@ ", fname, time, line, joind))
