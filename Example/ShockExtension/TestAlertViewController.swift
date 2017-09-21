@@ -43,11 +43,22 @@ class TestAlertViewController: UIViewController {
     }
     
     @IBAction func onClickLoading(_ sender: Any) {
-        UIAlertController.loading(self, loadingStyle: .gray) { (alert) in
-            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-                alert.dismiss(animated: true, completion: nil)
-            }
-        }
+//        UIAlertController.loading(self, loadingStyle: .gray) { (alert) in
+//            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+//                alert.dismiss(animated: true, completion: nil)
+//            }
+//        }
+        
+        UIAlertController.loading(self,
+                                  loadingStyle: .gray,
+                                  title: "접속 중",
+                                  cancelTitle: "취소",
+                                  completed: { (alert) in
+                                    print("loading completed")
+                                  },
+                                  canceled: {
+                                    print("canceled")
+                                  })
     }
     
     @IBAction func onClickProgress(_ sender: Any) {

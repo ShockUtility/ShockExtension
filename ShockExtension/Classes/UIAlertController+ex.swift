@@ -118,8 +118,36 @@ public extension UIAlertController {
         alert.addLoadingView(loadingStyle: loadingStyle)
         
         controller.present(alert, animated: true) {
-            if let result = completed {
-                result(alert)
+            if completed != nil {
+                completed!(alert)
+            }
+        }
+        
+        return alert
+    }
+
+    // 로딩 취소 얼럿
+    @discardableResult
+    class func loading(_ controller: UIViewController,
+                       loadingStyle: UIActivityIndicatorViewStyle,
+                       title: String,
+                       cancelTitle: String,
+                       completed: ((_ alert: UIAlertController) -> Void)?,
+                       canceled: (() -> Void)?) -> UIAlertController
+    {
+        let alert = UIAlertController(title: title, message: nil, preferredStyle: .alert)
+        alert.addLoadingView(loadingStyle: loadingStyle, viewHeight:150, yPositon: 1.0)
+                
+        alert.addAction(UIAlertAction(title: cancelTitle, style: .default) { action in
+            alert.dismiss(animated: true)
+            if canceled != nil {
+                canceled!()
+            }
+        })
+        
+        controller.present(alert, animated: true) {
+            if completed != nil {
+                completed!(alert)
             }
         }
         
@@ -168,7 +196,15 @@ public extension UIAlertController {
 
 fileprivate extension UIAlertController {
     // 로딩 뷰를 추가해 준다
-    func addLoadingView(loadingStyle: UIActivityIndicatorViewStyle) {
+    func addLoadingView(loadingStyle: UIActivityIndicatorViewStyle, viewHeight:CGFloat = 100, yPositon:CGFloat = 1.4) {
+        // 얼럿 높이 수정
+        let height: NSLayoutConstraint = NSLayoutConstraint(item: self.view, attribute: NSLayoutAttribute.height,
+                                                            relatedBy: NSLayoutRelation.equal,
+                                                            toItem: nil, attribute: NSLayoutAttribute.notAnAttribute,
+                                                            multiplier: 1, constant: viewHeight)
+        self.view.addConstraint(height)
+
+        // 인디케이터 추가
         let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: loadingStyle)
         activityIndicator.translatesAutoresizingMaskIntoConstraints = false
         activityIndicator.tag = 999
@@ -177,15 +213,10 @@ fileprivate extension UIAlertController {
         let xConstraint = NSLayoutConstraint(item: activityIndicator, attribute: .centerX, relatedBy: .equal,
                                              toItem: self.view, attribute: .centerX, multiplier: 1, constant: 0)
         let yConstraint = NSLayoutConstraint(item: activityIndicator, attribute: .centerY, relatedBy: .equal,
-                                             toItem: self.view, attribute: .centerY, multiplier: 1.4, constant: 0)
+                                             toItem: self.view, attribute: .centerY, multiplier: yPositon, constant: 0)
         NSLayoutConstraint.activate([ xConstraint, yConstraint])
         activityIndicator.isUserInteractionEnabled = false
         activityIndicator.startAnimating()
-        let height: NSLayoutConstraint = NSLayoutConstraint(item: self.view, attribute: NSLayoutAttribute.height,
-                                                            relatedBy: NSLayoutRelation.equal,
-                                                            toItem: nil, attribute: NSLayoutAttribute.notAnAttribute,
-                                                            multiplier: 1, constant: 100)
-        self.view.addConstraint(height)
     }
 }
 
