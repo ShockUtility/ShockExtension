@@ -4,7 +4,7 @@ PODS:
   - FBSnapshotTestCase/Core (2.1.4)
   - FBSnapshotTestCase/SwiftSupport (2.1.4):
     - FBSnapshotTestCase/Core
-  - ShockExtension (0.1.0)
+  - ShockExtension (0.6.9)
 
 DEPENDENCIES:
   - FBSnapshotTestCase
@@ -16,8 +16,8 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   FBSnapshotTestCase: 094f9f314decbabe373b87cc339bea235a63e07a
-  ShockExtension: 78003032706c7ca201f77e46fcae8f7618f56436
+  ShockExtension: 7ae9d7754b628daa386eff341470197c5f2bc0d7
 
-PODFILE CHECKSUM: 591fd012525aec23c93c53f61767e590a46727ec
+PODFILE CHECKSUM: a89a32c32ec33782de2294593e7c2cdf8b3db403
 
-COCOAPODS: 1.2.1
+COCOAPODS: 1.3.1

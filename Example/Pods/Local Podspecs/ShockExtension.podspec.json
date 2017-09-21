@@ -1,6 +1,6 @@
 {
   "name": "ShockExtension",
-  "version": "0.1.0",
+  "version": "0.6.9",
   "summary": "Frequently used basic extensions",
   "description": "Frequently used basic extensions\nUIAlertController\nString\nInt",
   "homepage": "https://github.com/ShockUtility/ShockExtension",
@@ -13,7 +13,7 @@
   },
   "source": {
     "git": "https://github.com/ShockUtility/ShockExtension.git",
-    "tag": "0.1.0"
+    "tag": "0.6.9"
   },
   "platforms": {
     "ios": "8.0"
