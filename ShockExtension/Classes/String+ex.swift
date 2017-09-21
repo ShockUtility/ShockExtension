@@ -69,7 +69,11 @@ public extension String {
     func hasPrefixAfter(_ prefix: String) -> String {
         if self.hasPrefix(prefix) {
             let start = self.index(self.startIndex, offsetBy:prefix.characters.count)
+#if swift(>=3.2)
             return String(self[start...])
+#else
+            return self.substring(from: start)
+#endif
         }
         return self
     }
