@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'ShockExtension'
-  s.version          = '0.7.0'
+  s.version          = '0.7.1'
   s.summary          = 'Frequently used basic extensions'
   s.description      = <<-DESC
 Frequently used basic extensions
@@ -26,7 +26,7 @@ Int
 
   s.ios.deployment_target = '8.0'
   s.source_files = 'ShockExtension/Classes/**/*'
-  
+
   # s.resource_bundles = {
   #   'ShockExtension' => ['ShockExtension/Assets/*.png']
   # }

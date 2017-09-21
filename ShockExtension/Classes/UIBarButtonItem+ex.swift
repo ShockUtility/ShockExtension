@@ -38,7 +38,11 @@ public extension UIBarButtonItem {
         guard let view = self.value(forKey: "view") as? UIView else { return }
         
         let font = UIFont.systemFont(ofSize: 8)
+#if swift(>=3.2)
         let badgeSize = badgeValue.description.size(withAttributes: [NSAttributedStringKey.font: font])
+#else
+        let badgeSize = badgeValue.description.size(attributes: [NSFontAttributeName: font])
+#endif
         
         // Initialize Badge
         let badge = CAShapeLayer()
