@@ -11,14 +11,14 @@ import Foundation
 public extension String {
     
     subscript (i: Int) -> Character {
-        return Array(self.characters)[i]
+        return Array(self)[i]
     }
     
     subscript (r: CountableClosedRange<Int>) -> String {
-        if r.upperBound >= self.characters.count {
-            return self[r.lowerBound...self.characters.count-1]
+        if r.upperBound >= self.count {
+            return self[r.lowerBound...self.count-1]
         }
-        return String(Array(self.characters)[r])
+        return String(Array(self)[r])
     }
     
     subscript (r: CountableRange<Int>) -> String {
@@ -37,7 +37,7 @@ public extension String {
     func countOfMatchs(pattern: String, options: NSRegularExpression.Options = .caseInsensitive) -> Int {
         do {
             let regex = try NSRegularExpression(pattern: pattern, options: options)
-            return regex.numberOfMatches(in: self, options: [], range: NSMakeRange(0, self.characters.count))
+            return regex.numberOfMatches(in: self, options: [], range: NSMakeRange(0, self.count))
         } catch {}
         
         return 0
@@ -68,12 +68,8 @@ public extension String {
     
     func hasPrefixAfter(_ prefix: String) -> String {
         if self.hasPrefix(prefix) {
-            let start = self.index(self.startIndex, offsetBy:prefix.characters.count)
-#if swift(>=3.2)
+            let start = self.index(self.startIndex, offsetBy:prefix.count)
             return String(self[start...])
-#else
-            return self.substring(from: start)
-#endif
         }
         return self
     }
